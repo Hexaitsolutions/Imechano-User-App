@@ -14,19 +14,15 @@ import 'package:imechano/localization/app_localization.dart';
 import 'package:imechano/ui/common/globals.dart';
 import 'package:imechano/ui/privacy_disp.dart';
 import 'package:imechano/ui/provider/invoice_balance_provider.dart';
-import 'package:imechano/ui/provider/notification_count_provider.dart';
+import 'package:imechano/ui/provider/notification_count_provider.dart'; 
 import 'package:imechano/ui/provider/theme_provider.dart';
-
 import 'package:imechano/ui/screens/bottombar/job_card_details.dart';
 import 'package:imechano/ui/screens/my_account/home.dart';
-
 import 'package:imechano/ui/screens/select_car/view/edit_details_screen.dart';
-
 import 'package:imechano/ui/share_preferences/pref_key.dart';
 import 'package:imechano/ui/share_preferences/preference.dart';
 import 'package:imechano/ui/styling/global.dart';
 import 'package:imechano/utils/utils.dart';
-
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -296,30 +292,6 @@ class _IMechanoAppState extends State<IMechanoApp> {
       scaffoldBackgroundColor: Colors.grey[900],
     );
   }
-
-  // ThemeData buildLightTheme() {
-  //   final ThemeData base = ThemeData.light();
-  //   return base.copyWith(
-  //     buttonColor: Colors.redAccent,
-  //     cardColor: Colors.white,
-  //     backgroundColor: Colors.white,
-  //     primaryColor: Colors.red,
-  //     accentColor: Colors.redAccent,
-  //     scaffoldBackgroundColor: Colors.white,
-  //   );
-  // }
-
-  // ThemeData buildDarkTheme() {
-  //   final ThemeData base = ThemeData.dark();
-  //   return base.copyWith(
-  //     buttonColor: Colors.blueAccent,
-  //     cardColor: Colors.grey[800],
-  //     backgroundColor: Colors.grey[800],
-  //     primaryColor: Colors.blue[900],
-  //     accentColor: Colors.blueAccent,
-  //     scaffoldBackgroundColor: Colors.grey[900],
-  //   );
-  // }
 
   Widget _dicedeScreen(Box prefs) {
     PrefObj.preferences = prefs;

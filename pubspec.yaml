@@ -67,8 +67,8 @@ dependencies:
   flutter_local_notifications: ^9.3.2
   #  syncfusion_flutter_datagrid: ^20.3.52
   #  syncfusion_flutter_core: ^20.3.52
-  syncfusion_flutter_datagrid: ^19.4.56
-  syncfusion_flutter_core: ^19.4.56
+  syncfusion_flutter_datagrid: 
+  syncfusion_flutter_core: 
   lottie: ^1.3.0
   flutter_countdown_timer: ^4.1.0
   back_button_interceptor: ^5.0.0

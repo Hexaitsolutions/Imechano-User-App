@@ -229,14 +229,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               width: 0.9,
                               callBackFunction: () {
-                                // updated code
                                 if (!agreePolicy) {
-                                  Get.snackbar(
-                                      getTranslated('tocmessage', context), "",
-                                      backgroundColor: Colors.red,
-                                      colorText: Colors.white);
-                                  return;
-                                }
+  Get.snackbar(
+    getTranslated('tocmessage', context),
+    "",
+    backgroundColor: Colors.red,
+    colorText: Colors.white
+  );
+  return; // Stop execution here so it doesn't call onRegisterAPI()
+}
                                 if (_formKey.currentState!.validate()) {
                                   validatePassword(creatpassword.text);
                                   validateConfirmPassword(Confirmpassword.text);
@@ -562,6 +563,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
+  // dynamic onresetAPI() async {
+  //   // show loader
+  //   Loader().showLoader(context);
+  //   final ResetPasswordModel isreset = await _repository.onreset(
+  //       email.text, mobileno.text, resetpassword.text);
+
+  //   if (isreset.code != '0') {
+  //     FocusScope.of(context).requestFocus(FocusNode());
+  //     PrefObj.preferences!.put(PrefKeys.USER_DATA, json.encode(isreset.data));
+
+  //     id = isreset.data!.id.toString();
+  //     addCarApiCall();
+  //     //snackBar('forget Success!!');
+
+  //   } else {
+  //     Loader().hideLoader(context);
+  //     showpopDialog(
+  //         context, 'Error', isreset.message != null ? isreset.message! : '');
+  //   }
+  // }
+
   addCarApiCall() async {
     if (PrefObj.preferences!.containsKey(PrefKeys.ADDCARDATA)) {
       final carData =
@@ -796,4 +818,103 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
+
+  // Future _showmodelbottom1() {
+  //   return showMaterialModalBottomSheet(
+  //     shape: RoundedRectangleBorder(
+  //         borderRadius: BorderRadius.only(
+  //             topLeft: Radius.circular(40), topRight: Radius.circular(40))),
+  //     context: context,
+  //     builder: (context) => Form(
+  //       key: _formKey3,
+  //       child: Container(
+  //         margin: EdgeInsets.only(left: 25, right: 25),
+  //         height: MediaQuery.of(context).size.height * 0.6,
+  //         child: SingleChildScrollView(
+  //           physics: BouncingScrollPhysics(),
+  //           child: Column(
+  //             children: [
+  //               SizedBox(
+  //                 height: MediaQuery.of(context).size.height * 0.02,
+  //               ),
+  //               Text("Reset Password",
+  //                   style: TextStyle(
+  //                       fontWeight: FontWeight.bold,
+  //                       fontSize: 22,
+  //                       color: logoBlue)),
+  //               SizedBox(
+  //                 height: MediaQuery.of(context).size.height * 0.02,
+  //               ),
+  //               Column(
+  //                 children: [
+  //                   Text(
+  //                     "Set the new password for your account \n so you can login and access \n all the features",
+  //                     style: TextStyle(fontFamily: "Poppins3", fontSize: 12),
+  //                     textAlign: TextAlign.center,
+  //                   ),
+  //                   SizedBox(
+  //                     height: MediaQuery.of(context).size.height * 0.03,
+  //                   ),
+  //                   CustomForm(
+  //                     fillColor: appModelTheme.darkTheme
+  //                         ? darkmodeColor
+  //                         : grayE6E6E5,
+  //                     validationform: (value) {
+  //                       if (value == null || value.isEmpty) {
+  //                         return 'Please enter Fil The Password';
+  //                       }
+  //                       return null;
+  //                     },
+  //                     controller: resetpassword,
+  //                     imagePath:
+  //                         'assets/icons/auth/sign_up/create-password.png',
+  //                     hintText: 'Password',
+  //                     isSuffix: true,
+  //                     icon: Icons.visibility,
+  //                   ),
+  //                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+  //                   CustomForm(
+  //                     fillColor: appModelTheme.darkTheme
+  //                         ? darkmodeColor
+  //                         : grayE6E6E5,
+  //                     validationform: (value) {
+  //                       if (value == null || value.isEmpty) {
+  //                         return 'Please enter Fil The Confirm Password';
+  //                       }
+  //                       return null;
+  //                     },
+  //                     controller: confirmpassword,
+  //                     ObscureText: true,
+  //                     imagePath:
+  //                         'assets/icons/auth/sign_up/create-password.png',
+  //                     hintText: 'Confirm Password',
+  //                     isSuffix: true,
+  //                     icon: Icons.visibility_off,
+  //                   ),
+  //                   SizedBox(
+  //                     height: 45.h,
+  //                   ),
+  //                   CustomButton(
+  //                     title: Regular20White('Reset Password'),
+  //                     width: 0.9,
+  //                     bgColor: logoBlue,
+  //                     borderColor: logoBlue,
+  //                     callBackFunction: () {
+  //                       if (_formKey3.currentState!.validate()) {
+  //                         onresetAPI();
+  //                       }
+  //                     },
+  //                   ),
+  //                   SizedBox(
+  //                     height: 30.h,
+  //                   ),
+  //                 ],
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
