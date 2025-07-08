@@ -699,6 +699,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Text("Enter 4 Digits Code",
                       style: TextStyle(
                           fontFamily: "Poppins3",
+                          
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
                           color: logoBlue)),

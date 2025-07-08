@@ -23,6 +23,13 @@ class ListOfInvoicesApi {
       log(postData.toString());
 
 // Encode parameters in the query string
+
+//String queryString = Uri(queryParameters: postData).query;
+      // Create a full URI with query parameters
+      // final fullUri = Uri.parse('$uri?$queryString');
+
+      
+
       String queryString = Uri(queryParameters: postData).query;
       final fullUri = Uri.parse('$uri?$queryString');
 
